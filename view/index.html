@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="whatMovie">
+    <head>
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+    </head>
+
+    <body ng-controller="RandomMovieController as randomMovieCtrl">
+        <div class="container">
+            <div class="page-header">
+                <h3 class="text-muted">WhatMovie</h3>
+            </div>
+
+            <div class="jumbotron">
+                <h3>Can't decide on what movie to watch?</h3>
+                <p>Show WhatMovie what you're looking for and let it find one for you.</p>
+            </div>
+
+            <!--enter movie parameters here-->
+            <div class="container">
+                <form name="optionsForm">
+                    <p>
+                        <strong>Year Released: </strong>
+                        <select ng-model="randomMovieCtrl.params.year" ng-options="y for y in randomMovieCtrl.years">
+                            <option value="">Any</option>
+                        </select>
+                    </p>
+                    <p>
+                        <strong>Genre: </strong>
+                        <select ng-model="randomMovieCtrl.params.with_genres" ng-options="g.id as g.name for g in randomMovieCtrl.genres">
+                            <option value="">Any</option>
+                        </select>
+                    </p>
+                    <p>
+                        <strong>Language: </strong>
+                        <select ng-model="randomMovieCtrl.params.language" ng-options="c as l.name for (c, l) in randomMovieCtrl.languages">
+                            <option value="">{{ randomMovieCtrl.languages.en.name }}</option>
+                        </select>
+                    </p>
+                    <button type="submit" class="btn btn-default" ng-click="randomMovieCtrl.fetchMovie()">Find a Movie</button>
+                </form>
+            </div>
+
+            <!--display resulting movie-->
+            <div>
+                <h2 class="text-center">{{ randomMovieCtrl.result.original_title }}</h2>
+                <img src="{{ randomMovieCtrl.result.poster_path }}" class="img-responsive center-block">
+                <div class="container">
+                    <p>{{ randomMovieCtrl.result.overview }}</p>
+                    <p><strong>Release Date:</strong> {{ randomMovieCtrl.result.release_date | date }}</p>
+                    <p><strong>Original Language:</strong> {{ randomMovieCtrl.result.original_language }}</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
