@@ -1,0 +1,26 @@
+{
+  "name": "what-movie",
+  "version": "1.0.0",
+  "description": "Fetches and displays a random movie based on parameters such as release date and genre",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/f-jiang/what-movie.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/f-jiang/what-movie/issues"
+  },
+  "homepage": "https://github.com/f-jiang/what-movie#readme",
+  "dependencies": {
+    "bower": "^1.7.9",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "merge": "^1.2.0",
+    "request": "^2.74.0"
+  }
+}
