@@ -71,7 +71,9 @@
         function($scope, $location, movie, params) {
             $scope.movie = movie;
             $scope.reset = function() {
-                params = {};
+                for (var p in params) {
+                    params[p] = null;
+                }
 
                 $location.path('/');
             };
