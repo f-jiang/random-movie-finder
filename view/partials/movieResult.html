@@ -1,0 +1,9 @@
+<div>
+    <h2 class="text-center">{{ movie.original_title }}</h2>
+    <img src="{{ movie.poster_path }}" class="img-responsive center-block">
+    <div class="container">
+        <p>{{ movie.overview }}</p>
+        <p><strong>Release Date:</strong> {{ movie.release_date | date }}</p>
+        <p><strong>Original Language:</strong> {{ movie.original_language }}</p>
+    </div>
+</div>

@@ -1,54 +1,80 @@
 (function() {
-    var app = angular.module('whatMovie', []);
+    var app = angular.module('whatMovie', ['ngRoute']);
 
-    // TODO refactor the controller
-    app.controller('RandomMovieController', ['$http', function($http) {
-        var ctrl = this;
+    app.value('params', {});
 
-        ctrl.result = {};
-        ctrl.params = {};
+    app.config(['$routeProvider', function($routeProvider) {
+        $routeProvider
+        .when('/', {
+            templateUrl: 'partials/movieForm.html',
+            controller: 'FormController',
+            resolve: {
+                years: function() {
+                    var ar = [];
+                    var curYear = new Date().getFullYear();
 
-        ctrl.years = [];
-        var curYear = new Date().getFullYear();
-        for (var i = curYear; i > 1899; i--) {
-            ctrl.years.push(i);
-        }
+                    for (var i = curYear; i > 1899; i--) {
+                        ar.push(i);
+                    }
 
-        ctrl.genres = [];
-        $http({
-            method: 'GET',
-            url: '/genres'
-        }).then(function(response) {
-            ctrl.genres = response.data;
-        });
-
-        ctrl.languages = [];
-        $http({
-            method: 'GET',
-            url: '/lang'
-        }).then(function(response) {
-            ctrl.languages = response.data;
-        });
-
-        ctrl.fetchMovie = function() {
-            for (var p in ctrl.params) {
-                if (ctrl.params[p] == null) {
-                    delete ctrl.params[p];
+                    return ar;
+                },
+                genres: function($http) {
+                    return $http.get('/genres').then(function(response) {
+                        return response.data;
+                    });
+                },
+                languages: function($http) {
+                    return $http.get('/lang').then(function(response) {
+                        return response.data;
+                    });
                 }
             }
-
-            $http({
-                method: 'GET',
-                url: '/random-movie',
-                params: ctrl.params
-            }).then(function (response) {
-                ctrl.result = response.data;
-            });
-        };
-
-        ctrl.reset = function() {
-            ctrl.result = {};
-            ctrl.params = {};
-        }
+        })
+        .when('/result', {
+            templateUrl: 'partials/movieResult.html',
+            controller: 'MovieController',
+            resolve: {
+                movie: function($http, params) {
+                    return $http.get(
+                        '/random-movie',
+                        {params: params}
+                    ).then(function(response) {
+                        return response.data;
+                    });
+                }
+            }
+        })
+        .otherwise({redirectTo: '/'});
     }]);
+
+    app.controller('FormController',
+        function($scope, $location, years, genres, languages, params) {
+            $scope.years = years;
+            $scope.genres = genres;
+            $scope.languages = languages;
+            $scope.params = params;
+
+            $scope.getMovie = function() {
+                for (var p in $scope.params) {
+                    if ($scope.params[p] == null) {
+                        delete $scope.params[p];
+                    }
+                }
+
+                $location.path('/result');
+            };
+        }
+    );
+
+    app.controller('MovieController',
+        function($scope, $location, movie, params) {
+            $scope.movie = movie;
+            $scope.reset = function() {
+                params = {};
+
+                $location.path('/');
+            };
+        }
+    );
 })();

@@ -1,0 +1,23 @@
+<div>
+    <form name="optionsForm">
+        <p>
+            <strong>Year Released: </strong>
+            <select ng-model="params.year" ng-options="y for y in years">
+                <option value="">Any</option>
+            </select>
+        </p>
+        <p>
+            <strong>Genre: </strong>
+            <select ng-model="params.with_genres" ng-options="g.id as g.name for g in genres">
+                <option value="">Any</option>
+            </select>
+        </p>
+        <p>
+            <strong>Language: </strong>
+            <select ng-model="params.language" ng-options="c as l.name for (c, l) in languages">
+                <option value="">Any</option>
+            </select>
+        </p>
+        <button type="submit" class="btn btn-default" ng-click="getMovie()">Find a Movie</button>
+    </form>
+</div>
