@@ -1,5 +1,5 @@
 {
-  "name": "what-movie",
+  "name": "random-movie-finder",
   "version": "1.0.0",
   "description": "Fetches and displays a random movie based on parameters such as release date and genre",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/f-jiang/what-movie.git"
+    "url": "git+https://github.com/f-jiang/random-movie-finder.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/f-jiang/what-movie/issues"
+    "url": "https://github.com/f-jiang/random-movie-finder/issues"
   },
-  "homepage": "https://github.com/f-jiang/what-movie#readme",
+  "homepage": "https://github.com/f-jiang/random-movie-finder#readme",
   "dependencies": {
     "bower": "^1.7.9",
     "dotenv": "^2.0.0",
