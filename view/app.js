@@ -1,5 +1,5 @@
 (function() {
-    var app = angular.module('randomMovieFinder', ['ngRoute']);
+    var app = angular.module('randomMovieFinder', ['ngRoute', 'ngAnimate']);
 
     app.value('params', {});
 

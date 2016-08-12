@@ -5,7 +5,9 @@
         <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
         <script type="text/javascript" src="app.js"></script>
+        <link rel="stylesheet" type="text/css" href="transitions.css" />
     </head>
 
     <body>
@@ -14,12 +16,9 @@
                 <h3 class="text-muted">Random Movie Finder</h3>
             </div>
 
-            <div class="jumbotron">
-                <h3>Can't decide on what movie to watch?</h3>
-                <p>Show Random Movie Finder what you're looking for and let it find one for you.</p>
+            <div class="animated-container">
+                <div class="panel panel-default animation" ng-view></div>
             </div>
-
-            <div class="span12" ng-view></div>
         </div>
     </body>
 </html>
