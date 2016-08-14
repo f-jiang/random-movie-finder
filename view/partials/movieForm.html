@@ -1,19 +1,22 @@
 <div class="panel-body">
     <form name="optionsForm">
         <p>
-            <strong>Year Released: </strong>
+            Year Released
+            <br>
             <select ng-model="params.year" ng-options="y for y in years">
                 <option value="">Any</option>
             </select>
         </p>
         <p>
-            <strong>Genre: </strong>
+            Genre
+            <br>
             <select ng-model="params.with_genres" ng-options="g.id as g.name for g in genres">
                 <option value="">Any</option>
             </select>
         </p>
         <p>
-            <strong>Language: </strong>
+            Language
+            <br>
             <select ng-model="params.language" ng-options="c as l.name for (c, l) in languages">
                 <option value="">Any</option>
             </select>

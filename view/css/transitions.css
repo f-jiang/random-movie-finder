@@ -2,10 +2,11 @@
     position:relative;
 }
 
-.animation.ng-enter, .animation.ng-leave {
-    -webkit-transition:0.5s linear all;
-    transition:0.5s linear all;
+.animation {
+    overflow-y: hidden;
+}
 
+.animation.ng-enter, .animation.ng-leave {
     position:absolute;
     top:0;
     left:0;
@@ -13,16 +14,17 @@
 }
 
 .animation.ng-enter {
-    opacity:0;
+    -webkit-transition: 1.5s ease all;
+    max-height: 0px;
 }
 .animation.ng-enter.ng-enter-active {
-    opacity:1;
+    max-height: 1000px;
 }
 
 .animation.ng-leave {
-    opacity:1;
+    transition: 0.5s ease all;
+    opacity: 1;
 }
 .animation.ng-leave.ng-leave-active {
-    opacity:0;
+    opacity: 0;
 }
-
