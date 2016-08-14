@@ -6,18 +6,38 @@
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+
         <script type="text/javascript" src="app.js"></script>
-        <link rel="stylesheet" type="text/css" href="transitions.css" />
+        <link rel="stylesheet" type="text/css" href="css/transitions.css" />
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
     </head>
 
     <body>
         <div class="container">
             <div class="page-header">
-                <h3 class="text-muted">Random Movie Finder</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>Random Movie Finder</h1>
+                    </div>
+
+                    <div class="col-md-6 text-right">
+                        <a href="https://www.themoviedb.org/documentation/api" target="_blank">
+                            <img id="tmdb-logo" src="assets/tmdb_logo.png" alt="Powered by themoviedb.org">
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <div class="animated-container">
                 <div class="panel panel-default animation" ng-view></div>
+            </div>
+
+            <div>
+                <p>
+                    <h4>What is Random Movie Finder?</h4>
+                    Random Movie Finder is for those moments when you just can't decide on what to watch.
+                    Show us what you're looking for and we'll find something for you.
+                </p>
             </div>
         </div>
     </body>
