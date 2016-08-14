@@ -1,3 +1,5 @@
+'use strict';
+
 (function() {
     var app = angular.module('randomMovieFinder', ['ngRoute', 'ngAnimate']);
 
