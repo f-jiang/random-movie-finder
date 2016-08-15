@@ -1,26 +1,38 @@
-<div class="panel-body">
-    <form name="optionsForm">
-        <p>
-            Year Released
-            <br>
-            <select ng-model="params.year" ng-options="y for y in years">
-                <option value="">Any</option>
-            </select>
-        </p>
-        <p>
-            Genre
-            <br>
-            <select ng-model="params.with_genres" ng-options="g.id as g.name for g in genres">
-                <option value="">Any</option>
-            </select>
-        </p>
-        <p>
-            Language
-            <br>
-            <select ng-model="params.language" ng-options="c as l.name for (c, l) in languages">
-                <option value="">Any</option>
-            </select>
-        </p>
-        <button type="submit" class="btn btn-default" ng-click="getMovie()">Find a Movie</button>
+<div class="panel-body bs-component">
+    <form name="optionsForm" class="form-horizontal">
+        <fieldset>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Year Released</label>
+                <div class="col-md-9">
+                    <select class="form-control" class="form-control" ng-model="params.year" ng-options="y for y in years">
+                        <option value="">Any</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label">Genre</label>
+                <div class="col-md-9">
+                    <select class="form-control" ng-model="params.with_genres" ng-options="g.id as g.name for g in genres">
+                        <option value="">Any</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label">Language</label>
+                <div class="col-md-9">
+                    <select class="form-control" ng-model="params.language" ng-options="c as l.name for (c, l) in languages">
+                        <option value="">Any</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-9 col-md-offset-3">
+                    <button type="submit" class="btn btn-primary" ng-click="getMovie()">Find a Movie</button>
+                </div>
+            </div>
+        </fieldset>
     </form>
 </div>
