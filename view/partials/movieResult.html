@@ -1,7 +1,7 @@
 <div class="panel-heading">
     <h1 class="panel-title">{{ movie.title }}</h1>
 </div>
-<div class="panel-body">
+<div class="panel-body bs-component">
     <div class="row">
         <div class="col-md-6">
             <img src="{{ movie.poster_path }}" class="img-responsive center-block">
@@ -9,17 +9,20 @@
         <div class="col-md-6">
             <ul class="list-group">
                 <li class="list-group-item" ng-hide="movie.overview === ''">
-                    <strong>Outline:</strong>
-                    <p>{{ movie.overview }}</p>
+                    <h5 class="list-group-item-heading"><strong>Outline</strong></h5>
+                    <p class="list-group-item-text">{{ movie.overview }}</p>
                 </li>
                 <li class="list-group-item">
-                    <strong>Release Date:</strong> {{ movie.release_date | date }}
+                    <h5 class="list-group-item-heading"><strong>Release Date</strong></h5>
+                    <p class="list-group-item-text">{{ movie.release_date | date }}</p>
                 </li>
                 <li class="list-group-item">
-                    <strong>Original Language:</strong> {{ movie.original_language }}
+                    <h5 class="list-group-item-heading"><strong>Original Language</strong></h5>
+                    <p class="list-group-item-text">{{ movie.original_language }}</p>
                 </li>
                 <li class="list-group-item">
-                    <strong>Genres:</strong> {{ movie.genre_ids }}
+                    <h5 class="list-group-item-heading"><strong>Genres</strong></h5>
+                    <p class="list-group-item-text">{{ movie.genre_ids }}</p>
                 </li>
                 <li class="list-group-item">
                     <button type="submit" class="btn btn-default" ng-click="reset()">Back</button>
