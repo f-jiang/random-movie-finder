@@ -1,5 +1,5 @@
 <div class="panel-heading">
-    <h1 class="panel-title">{{ movie.original_title }}</h1>
+    <h1 class="panel-title">{{ movie.title }}</h1>
 </div>
 <div class="panel-body">
     <div class="row">
@@ -8,7 +8,7 @@
         </div>
         <div class="col-md-6">
             <ul class="list-group">
-                <li class="list-group-item">
+                <li class="list-group-item" ng-hide="movie.overview === ''">
                     <strong>Outline:</strong>
                     <p>{{ movie.overview }}</p>
                 </li>
@@ -17,6 +17,9 @@
                 </li>
                 <li class="list-group-item">
                     <strong>Original Language:</strong> {{ movie.original_language }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Genres:</strong> {{ movie.genre_ids }}
                 </li>
                 <li class="list-group-item">
                     <button type="submit" class="btn btn-default" ng-click="reset()">Back</button>
