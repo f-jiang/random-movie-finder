@@ -11,6 +11,7 @@
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-scroll/angular-scroll.min.js"></script>
 
         <script type="text/javascript" src="app.js"></script>
         <link rel="stylesheet" type="text/css" href="css/transitions.css" />
@@ -18,7 +19,7 @@
     </head>
 
     <body>
-        <div class="container">
+        <div id="page-top" class="container">
             <div class="page-header">
                 <div class="row">
                     <div class="col-md-6">
@@ -43,7 +44,7 @@
             </div>
 
             <div class="bs-component animated-container">
-                <div class="panel panel-default animation" ng-view></div>
+                <div id="result-top" class="panel panel-default animation" ng-view></div>
             </div>
         </div>
     </body>

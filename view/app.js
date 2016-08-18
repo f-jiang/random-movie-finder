@@ -1,9 +1,10 @@
 'use strict';
 
 (function() {
-    var app = angular.module('randomMovieFinder', ['ngRoute', 'ngAnimate']);
+    var app = angular.module('randomMovieFinder', ['ngRoute', 'ngAnimate', 'duScroll']);
 
     app.value('params', {});
+    app.value('duScrollDuration', 500);
 
     app.config(['$routeProvider', function($routeProvider) {
         $routeProvider
@@ -70,7 +71,7 @@
     );
 
     app.controller('MovieController',
-        function($scope, $location, movie, params) {
+        function($scope, $location, $document, movie, params) {
             $scope.movie = movie;
             $scope.reset = function() {
                 for (var p in params) {
@@ -79,6 +80,11 @@
 
                 $location.path('/');
             };
+
+            $scope.$watch('$viewContentLoaded', function() {
+                var resultTop = angular.element(document.getElementById('result-top'));
+                $document.scrollToElementAnimated(resultTop);
+            });
         }
     );
 })();
