@@ -3,6 +3,8 @@
 Ever wanted to watch a movie without knowing what to watch? Random Movie Finder can help you by categorizing movies by release date, genre, and language.
 Results are retrieved from [The Movie Database](https://www.themoviedb.org/) so you'll find movies new and old in many different languages.
 
+[**Here's the link to the site.**](https://random-movie-finder.herokuapp.com/)
+
 <img src="https://raw.githubusercontent.com/f-jiang/random-movie-finder/public/screenshots/home.png" width="450">
 <img src="https://raw.githubusercontent.com/f-jiang/random-movie-finder/public/screenshots/result.png" width="400">
 
@@ -24,5 +26,5 @@ Results are retrieved from [The Movie Database](https://www.themoviedb.org/) so 
 
 ## License
 
-This project is licensed under the Apache License - see the LICENSE.txt file for details.
+This project is licensed under the MIT License - see the LICENSE.txt file for details.
 
